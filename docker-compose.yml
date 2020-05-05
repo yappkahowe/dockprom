@@ -11,7 +11,7 @@ volumes:
 services:
 
   prometheus:
-    image: prom/prometheus:v2.16.0
+    image: prom/prometheus:v2.17.2
     container_name: prometheus
     volumes:
       - ./prometheus:/etc/prometheus
@@ -68,7 +68,7 @@ services:
       org.label-schema.group: "monitoring"
 
   cadvisor:
-    image: gcr.io/google-containers/cadvisor:v0.34.0
+    image: gcr.io/google-containers/cadvisor:v0.36.0
     container_name: cadvisor
     volumes:
       - /:/rootfs:ro
@@ -85,7 +85,7 @@ services:
       org.label-schema.group: "monitoring"
 
   grafana:
-    image: grafana/grafana:6.6.2
+    image: grafana/grafana:6.7.3
     container_name: grafana
     volumes:
       - grafana_data:/var/lib/grafana
@@ -103,7 +103,7 @@ services:
       org.label-schema.group: "monitoring"
 
   pushgateway:
-    image: prom/pushgateway:v1.1.0
+    image: prom/pushgateway:v1.2.0
     container_name: pushgateway
     restart: unless-stopped
     expose:
